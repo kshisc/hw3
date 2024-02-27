@@ -66,9 +66,11 @@ void dealloc(Node* head)
 //   Add any helper functions or
 //   function object struct declarations
 // -----------------------------------------------
-
-
-
+struct Comp{ //functor
+    bool operator()(int x){
+        return (x%2) == 0;
+    }
+};
 
 
 int main(int argc, char* argv[])
@@ -86,10 +88,9 @@ int main(int argc, char* argv[])
     print(head);
 
     // Test out your linked list code
+    Comp pred;
+    head=llfilter(head,pred);
+    print(head);
 
-
-
-    
     return 0;
-
 }
